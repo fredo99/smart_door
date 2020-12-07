@@ -127,13 +127,6 @@
       });
     });
   </script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
-    });
-  </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS &&
@@ -143,66 +136,3 @@
       });
   </script>
 
-<!-- untuk check messages -->
-<script>
-    var message_now = 0;
-    $(document).ready(function() {
-        var notif_navbar =  document.getElementById("notif_navbar");
-        var badges_notif =  document.getElementById("badges_notif");
-        setInterval(function(){
-              $.ajax({
-                  url:"<?php echo base_url();?>index.php/MessageControl/get_message",
-                  dataType : 'json',
-                  success:function(data){
-                      if (data != 0 && data != message_now){ //ada pesan masuk
-                          console.log(data);
-                          $.ajax({
-                              url:"<?php echo base_url();?>index.php/MessageControl/get_last_message",
-                              dataType : 'json',
-                              success:function(data1){
-                                  $.each(data1, function(key,val){
-                                    var u_from = val.u_from;
-                                    showNotification('top','right', u_from);
-                                  });
-                              }
-                          });
-                          notif_navbar.classList.add("notification");
-                          badges_notif.innerHTML = data;
-                          message_now = data;
-                      }else if(data == 0){
-                          message_now = 0;
-                          notif_navbar.classList.remove("notification");
-                          badges_notif.innerHTML = "";
-                      }
-                  }
-              });
-          }, 1000);
-
-          //for checking whenever user is operating the website so that their last_login_status will change
-          $.ajax({
-              url:"<?php echo base_url();?>index.php/MessageControl/change_last_user_status",
-              dataType : 'json',
-              success:function(data){
-                  console.log('online');
-              }
-          });
-        
-    });
-
-    function showNotification(from, align, user) {
-        color = Math.floor((Math.random() * 4) + 1);
-
-        $.notify({
-          icon: "tim-icons icon-bell-55",
-          message: "You Have New <b>Room Access Request </b> By - "+user
-
-        }, {
-          type: type[color],
-          timer: 8000,
-          placement: {
-            from: from,
-            align: align
-          }
-        });
-    }
-  </script>

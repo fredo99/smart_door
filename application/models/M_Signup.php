@@ -1,16 +1,16 @@
 <?php
 class M_signup extends CI_Model
 {
-	function check_email($email)
+	function check_id($id)
 	{
-		$query = $this->db->query("SELECT * FROM user WHERE email='$email' LIMIT 1");
+		$query = $this->db->query("SELECT * FROM user WHERE id='$id' LIMIT 1");
 		return $query;
     }
     
-    function add_user($name, $email, $password)
+    function add_user($name, $id, $password)
 	{
-		$this->db->query("INSERT INTO user (name, email, password, status1, status2)
-        VALUES ('$name', '$email', '$password', 0, 'Not In The Room')");
+		$this->db->query("INSERT INTO user (id, password)
+        VALUES ('$id', '$password')");
 	}
 
 }

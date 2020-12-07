@@ -23,16 +23,6 @@
                 </button>
               </li> -->
               <li class="dropdown nav-item">
-                <a href="<?php echo base_url();?>Notification" class="nav-link">
-                  <!-- class notification ini untuk memunculkan tanda titik merah -->
-                  <div class="d-none d-lg-block d-xl-block" id="notif_navbar"></div> 
-                  <i class="tim-icons icon-bell-55"></i>
-                  <p class="d-lg-none">
-                    Notifications
-                  </p>
-                </a>
-              </li>
-              <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
                     <img src="<?php echo base_url() . 'assets/dashboard/img/anime3.png' ?>" alt="Profile Photo">
@@ -43,7 +33,6 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="<?php echo base_url();?>Profile" class="nav-item dropdown-item">Profile</a></li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link"><a href="<?php echo base_url();?>Logout" class="nav-item dropdown-item">Log out</a></li>
                 </ul>

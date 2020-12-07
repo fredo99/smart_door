@@ -39,7 +39,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="email" id="email" placeholder="Email..." autocomplete="off" required
+						<input class="input100" type="text" name="id" id="id" placeholder="ID..." autocomplete="off" required
 						>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -101,12 +101,12 @@
 
 	<script>
 		function login(){
-			var email =document.getElementById('email').value;
+			var id =document.getElementById('id').value;
 			var password =document.getElementById('password').value;
             $.ajax({
                 url:"<?php echo base_url();?>index.php/Login/auth",
                 method : "POST",
-                data: {email: email, password: password},
+                data: {id: id, password: password},
                 dataType : 'json',
                 success:function(data){
                 console.log(data);

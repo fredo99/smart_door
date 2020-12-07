@@ -42,7 +42,7 @@ http://www.templatemo.com/tm-474-app-landing
         <section id="templatemo_home">
             <div class="container">
                 <div class="templatemo_home_inner_wapper">
-                    <h1 class="text-center"><i class="fa fa-mobile-phone"></i> Smart Office</h1>
+                    <h1 class="text-center"><i class="fa fa-mobile-phone"></i> Smart Door</h1>
                 </div>
                 <div class="templatemo_home_inner_wapper">
                     <h2 class="text-center">Beta</h2>
@@ -52,18 +52,13 @@ http://www.templatemo.com/tm-474-app-landing
                         </a>
                     </p>
                     <p class="text-center">
-                        Organize your room using the internet as an implementation from Internet of Things.
+                        Login To Set Up Your Smart Door
                     </p>
                 </div>
-                <div class="templatemo_home_inner_wapper btn_wapper">
-                    <div class="col-sm-6">
+                <div class="templatemo_home_inner_wapper btn_wapper" style="justify-content: center;">
+                    <div class="col-sm-12">
                         <a href="#templatemo_features" class="btn col-xs-12 scroll_effect shadow-top-down">
-                            <i class="fa fa-align-justify"></i> Features
-                        </a>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="#templatemo_download" class="btn col-xs-12 scroll_effect shadow-top-down">
-                            <i class="fa fa-download"></i> Download
+                            <i class="fa fa-align-justify"></i> Live
                         </a>
                     </div>
                 </div>
@@ -73,47 +68,25 @@ http://www.templatemo.com/tm-474-app-landing
         <section id="templatemo_features">
             <div class="container-fluid">
                 <header class="template_header">
-                    <h1 class="text-center"><span>...</span> Features <span>...</span></h1>
+                    <h1 class="text-center"><span>...</span> Visitors <span>...</span></h1>
                 </header>
                 <div class="col-sm-12">
-                    <div class="col-sm-6 col-lg-3 feature-box">
-                        <div class="feature-box-inner">
-                            <div class="feature-box-icon">
-                                <i class="fa fa-laptop"></i>
-                            </div>
-                            <p>
-                                Manage recognized devices from anywhere using the website by only clicking buttons.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 feature-box">
-                        <div class="feature-box-inner">
-                            <div class="feature-box-icon">
-                                <i class="fa fa-search"></i>
-                            </div>
-                            <p>
-                                Find out if someone is in their rooms or not by being a guest.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3 feature-box">
+                    <div class="col-sm-12 col-lg-6 feature-box">
                         <div class="feature-box-inner">
                             <div class="feature-box-icon">
                                 <i class="fa fa-users"></i>
                             </div>
-                            <p>
-                                Register yourself as a guest to someone else's room to gain room access.
-                            </p>
+                            <h1 style="text-align: center;">Visitors Inside<h1>
+                            <h1 style="text-align: center; font-weight: bold;" id="visitor_inside"><?= $in ?><h1>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3 feature-box">
+                    <div class="col-sm-12 col-lg-6 feature-box">
                         <div class="feature-box-inner">
                             <div class="feature-box-icon">
-                                <i class="fa fa-database"></i>
+                                <i class="fa fa-users"></i>
                             </div>
-                            <p>
-                                Store data on tool usage in our database for future use
-                            </p>
+                            <h1 style="text-align: center;">Capacity Left<h1>
+                            <h1 style="text-align: center; font-weight: bold;" id="capacity_left"><?= $left ?><h1>
                         </div>
                     </div>
                 </div>
@@ -131,7 +104,7 @@ http://www.templatemo.com/tm-474-app-landing
                     </p>
                 </div>
                 <div class="col-xs-12">
-                    <a href="#" class="shadow-top-down"><img src="<?php echo base_url() . 'assets/landingpage/images/github.jpg' ?>" width="260" heigh="100"/></a>
+                    <a href="https://github.com/julioojordan" class="shadow-top-down"><img src="<?php echo base_url() . 'assets/landingpage/images/github.jpg' ?>" width="260" heigh="100"/></a>
                 </div>
             </div>
         </section>
@@ -179,5 +152,24 @@ http://www.templatemo.com/tm-474-app-landing
         <!-- template mo config script -->
         <script src="<?php echo base_url() . 'assets/landingpage/js/templatemo_scripts.js' ?>"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+        <script>
+            $(document).ready(function() {
+                setInterval(function(){
+                $.ajax({
+                    url:"<?php echo base_url();?>index.php/LandingPage/auto_count",
+                    dataType : 'json',
+                    success:function(data){
+                        console.log(data);
+                        $.each(data, function(key,val){
+                        document.getElementById("visitor_inside").innerHTML = val.in_capacity;
+                        $left = parseInt(val.capacity) - parseInt(val.in_capacity)
+                        document.getElementById("capacity_left").innerHTML = $left;
+                        });
+                    }
+                });
+                }, 1000);
+            });
+        </script>
     </body>
 </html>

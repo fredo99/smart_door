@@ -39,7 +39,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="email" id="email" placeholder="Email..." autocomplete="off" required
+						<input class="input100" type="text" name="id" id="id" placeholder="Id..." autocomplete="off" required
 						>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -111,12 +111,12 @@
 	<script>
 		function signup(){
 			var fullname =document.getElementById('fullname').value;
-			var email =document.getElementById('email').value;
+			var id =document.getElementById('id').value;
 			var password =document.getElementById('password').value;
             $.ajax({
                 url:"<?php echo base_url();?>index.php/Login/register",
                 method : "POST",
-                data: {email: email, password: password, fullname: fullname},
+                data: {id: id, password: password, fullname: fullname},
                 dataType : 'json',
                 success:function(data){
                 console.log(data);
@@ -125,8 +125,8 @@
 					}else{
                         Swal.fire({
 							icon: 'error',
-							title: 'Email Already Taken',
-							text: 'Please use different email !'
+							title: 'id Already Taken',
+							text: 'Please use different id !'
 						});
                     }
                     
