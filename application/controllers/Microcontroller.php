@@ -13,7 +13,7 @@ class Microcontroller extends CI_Controller {
         $capacity = (int)$cek['capacity'];
 
         // cek apakah sudah melebihi
-        if ($total_visitors > $capacity){
+        if ($total_visitors >= $capacity){
             echo "FULL";
         }else{
             //update capacity
@@ -33,7 +33,7 @@ class Microcontroller extends CI_Controller {
         
         $total_visitors = (int)$cek['in_capacity'];
 
-        if ($total_visitors < 0){
+        if ($total_visitors <= 0){
             echo "KOSONG";
         }else{
             //update capacity
