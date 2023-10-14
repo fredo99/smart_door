@@ -5,11 +5,12 @@ class Microcontroller extends CI_Controller {
 
     public function __construct()
     {
-        $this->load->model('m_capacity');
+        parent::__construct();
+        $this->load->model('M_capacity');
     }
 
     public function cek_capacity()
-    {   
+    { 
         $cek = $this->m_capacity->getCapacity()->row_array();
         $id = $cek['id_capacity'];
         $total_visitors = (int)$cek['in_capacity'];

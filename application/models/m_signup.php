@@ -1,5 +1,5 @@
 <?php
-class m_signup extends CI_Model
+class M_signup extends CI_Model
 {
    function check_id($id)
 	{

@@ -1,5 +1,5 @@
 <?php
-class m_capacity extends CI_Model
+class M_capacity extends CI_Model
 {
     function getCapacity(){
         $query = $this->db->query("SELECT * FROM capacity ORDER BY set_time DESC LIMIT 1");
