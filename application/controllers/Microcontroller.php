@@ -3,10 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Microcontroller extends CI_Controller {
 
+    public function __construct()
+    {
+        $this->load->model('m_capacity');
+    }
+
     public function cek_capacity()
     {   
-        $this->load->model('m_capacity');
-
         $cek = $this->m_capacity->getCapacity()->row_array();
         $id = $cek['id_capacity'];
         $total_visitors = (int)$cek['in_capacity'];
@@ -24,8 +27,6 @@ class Microcontroller extends CI_Controller {
 
     public function add_capacity()
     {   
-        $this->load->model('m_capacity');
-
         $cek = $this->m_capacity->getCapacity()->row_array();
         $id = $cek['id_capacity'];
         $total_visitors = (int)$cek['in_capacity'];
@@ -36,9 +37,6 @@ class Microcontroller extends CI_Controller {
 
     public function min_capacity()
     {   
-        $this->load->model('m_capacity');
-
-
         $cek = $this->m_capacity->getCapacity()->row_array();
         $id = $cek['id_capacity'];
         
