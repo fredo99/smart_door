@@ -1,5 +1,5 @@
 <?php
-class M_signup extends CI_Model
+class m_signup extends CI_Model
 {
 
 	public function __construct()

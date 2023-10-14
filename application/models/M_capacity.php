@@ -1,5 +1,5 @@
 <?php
-class M_capacity extends CI_Model
+class m_capacity extends CI_Model
 {
     public function __construct()
     {
