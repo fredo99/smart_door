@@ -26,7 +26,8 @@ class Login extends CI_Controller {
 		$password=htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
 
 		
-		$auth=$this->m_login->auth($id,$password);
+		// $auth=$this->m_login->auth($id,$password);
+		$auth=$this->m_Login->auth($id,$password);
 
 		if($auth->num_rows()!= 0){
 			$data=$this->m_login->auth($id,$password)->row_array();
