@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
+	public function __construct()
+    {
+		parent::__construct();
+		$this->load->model('m_login');
+		$this->load->model('m_signup');
+    }
+
 	public function index()
 	{
 		$this->load->view('v_login');
@@ -15,7 +22,6 @@ class Login extends CI_Controller {
 
 	public function auth()
 	{
-		$this->load->model('m_login');
 		$id=htmlspecialchars($this->input->post('id',TRUE),ENT_QUOTES);
 		$password=htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
 
@@ -36,7 +42,6 @@ class Login extends CI_Controller {
 
 	public function register()
 	{
-		$this->load->model('m_signup');
 		$name=htmlspecialchars($this->input->post('fullname',TRUE),ENT_QUOTES);
 		$id=htmlspecialchars($this->input->post('id',TRUE),ENT_QUOTES);
 		$password=htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
