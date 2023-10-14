@@ -3,12 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Microcontroller extends CI_Controller {
 
-    /**
-     * Class constructor.
-     */
     public function __construct()
     {
-        $this->load->model('m_capacity');
+        $this->load->model('M_capacity');
     }
 
     public function cek_capacity()
@@ -40,7 +37,6 @@ class Microcontroller extends CI_Controller {
 
     public function min_capacity()
     {   
-
         $cek = $this->m_capacity->getCapacity()->row_array();
         $id = $cek['id_capacity'];
         
