@@ -5,7 +5,7 @@ class Microcontroller extends CI_Controller {
 
     public function __construct()
     {
-        $this->load->model('m_capacity');
+        $this->load->model('M_capacity');
     }
 
     public function cek_capacity()
