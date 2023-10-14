@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Microcontroller extends CI_Controller {
 
-    public function add_capacity()
+    public function cek_capacity()
     {   
         $this->load->model('m_capacity');
 
@@ -17,8 +17,20 @@ class Microcontroller extends CI_Controller {
             echo "FULL";
         }else{
             //update capacity
-            $this->m_capacity->addCapacityIn($id);
+            echo "MASIH_BISA_MASUK";
         }
+        
+    }
+
+    public function add_capacity()
+    {   
+        $this->load->model('m_capacity');
+
+        $cek = $this->m_capacity->getCapacity()->row_array();
+        $id = $cek['id_capacity'];
+        $total_visitors = (int)$cek['in_capacity'];
+        $capacity = (int)$cek['capacity'];
+        $this->m_capacity->addCapacityIn($id);
         
     }
 

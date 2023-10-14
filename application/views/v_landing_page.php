@@ -71,7 +71,7 @@ http://www.templatemo.com/tm-474-app-landing
                     <h1 class="text-center"><span>...</span> Visitors <span>...</span></h1>
                 </header>
                 <div class="col-sm-12">
-                    <div class="col-sm-12 col-lg-6 feature-box">
+                    <div class="col-xs-6 col-lg-6 feature-box">
                         <div class="feature-box-inner">
                             <div class="feature-box-icon">
                                 <i class="fa fa-users"></i>
@@ -80,7 +80,7 @@ http://www.templatemo.com/tm-474-app-landing
                             <h1 style="text-align: center; font-weight: bold;" id="visitor_inside"><?= $in ?><h1>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6 feature-box">
+                    <div class="col-xs-6 col-lg-6 feature-box">
                         <div class="feature-box-inner">
                             <div class="feature-box-icon">
                                 <i class="fa fa-users"></i>
