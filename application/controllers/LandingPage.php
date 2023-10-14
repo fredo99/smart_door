@@ -3,9 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class LandingPage extends CI_Controller {
 
+	public function __construct()
+    {
+        $this->load->model('m_capacity');
+    }
+
 	public function index()
 	{
-		$this->load->model('m_capacity');
 		$capacity = $this->m_capacity->getCapacity()->row_array();
 		$data['capacity'] = $capacity['capacity'];
 		$data['in'] = $capacity['in_capacity'];
@@ -20,7 +24,6 @@ class LandingPage extends CI_Controller {
 
 	public function auto_count()
 	{
-		$this->load->model('m_capacity');
 		$data= $this->m_capacity->getCapacity()->result();
 		echo json_encode($data);
 	}
