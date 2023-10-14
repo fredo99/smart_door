@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'http://localhost/smart_door/';
-$config['base_url'] = 'http://smart-door.my.id/';
+$config['base_url'] = 'http://154.49.243.77/';
 
 /*
 |--------------------------------------------------------------------------
