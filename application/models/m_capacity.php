@@ -1,12 +1,7 @@
 <?php
 class m_capacity extends CI_Model
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-	function getCapacity(){
+    function getCapacity(){
         $query = $this->db->query("SELECT * FROM capacity ORDER BY set_time DESC LIMIT 1");
         return $query;
     }
