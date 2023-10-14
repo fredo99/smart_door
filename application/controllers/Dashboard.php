@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller {
         $url=base_url();
         redirect($url);
 	  }
-	  $this->load->model('m_capacity');
+	  $this->load->model('M_capacity');
    	}
 
 	public function index()
