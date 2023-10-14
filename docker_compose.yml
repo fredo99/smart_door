@@ -14,6 +14,9 @@ services:
       - mynetwork
 
   web:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: smart-door:1.0
     container_name: web-container
     ports:
